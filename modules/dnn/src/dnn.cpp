@@ -1273,6 +1273,8 @@ struct Net::Impl
                 it->second.inputBlobs.clear();
                 it->second.outputBlobs.clear();
                 it->second.internals.clear();
+                // The following line of code implements this fix: https://github.com/opencv/opencv/issues/13462
+                it->second.layerInstance = NULL; // <=== Added
             }
             it->second.skip = false;
             //it->second.consumers.clear();
